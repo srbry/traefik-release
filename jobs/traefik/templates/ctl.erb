@@ -13,8 +13,13 @@ case $1 in
     echo $$ > $PIDFILE
 
     <%
-      p("traefik.config", "")
-    %> > ${RUN_DIR}/traefik.toml
+      traefik_mode = p("traefik.mode")
+      traefik_address = p("traefik.port")
+      traefik_read_only = p("traefik.read_only")
+    %>
+    "[<%= traefik_mode %>]" > ${RUN_DIR}/traefik.toml
+    "address = \":<%= traefik_address %>\"" >> ${RUN_DIR}/traefik.toml
+    "readOnly = <%= traefik_mode %>" >> ${RUN_DIR}/traefik.toml
 
     exec chpst -u vcap:vcap /var/vcap/packages/traefik/bin/traefik \
       -c ${RUN_DIR}/traefik.toml \
