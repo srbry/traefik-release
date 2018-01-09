@@ -1,5 +1,5 @@
 ---
-name: traefic
+name: traefik
 
 templates:
   ctl.erb: bin/ctl
