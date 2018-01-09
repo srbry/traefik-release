@@ -1,0 +1,5 @@
+---
+name: traefik
+
+files:
+  - traefik_binaries/*

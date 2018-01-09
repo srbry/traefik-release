@@ -1,0 +1,4 @@
+set -ex
+
+mkdir -p ${BOSH_INSTALL_TARGET}
+mv traefik_binaries/traefik ${BOSH_INSTALL_TARGET}/
