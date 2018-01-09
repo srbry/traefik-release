@@ -8,14 +8,14 @@ packages:
 - traefik
 
 properties:
-  traefik.mode:
+  mode:
     description: Traefik config mode, currently only supports "web"
     default: web
 
-  traefik.read_only:
+  read_only:
     description: Set the Treafik REST API to read-only mode.
     default: true
 
-  traefik.port:
+  port:
     description: Traefik web admin port
     default: 8080

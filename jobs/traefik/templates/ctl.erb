@@ -13,9 +13,9 @@ case $1 in
     echo $$ > $PIDFILE
 
     <%
-      traefik_mode = p("traefik.mode")
-      traefik_address = p("traefik.port")
-      traefik_read_only = p("traefik.read_only")
+      traefik_mode = p("mode")
+      traefik_address = p("port")
+      traefik_read_only = p("read_only")
     %>
     "[<%= traefik_mode %>]" > ${RUN_DIR}/traefik.toml
     "address = \":<%= traefik_address %>\"" >> ${RUN_DIR}/traefik.toml
