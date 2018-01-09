@@ -1,1 +1,6 @@
-name: traefik
+---
+blobstore:
+  provider: local
+  options:
+    blobstore_path: /tmp/traefik
+final_name: traefik

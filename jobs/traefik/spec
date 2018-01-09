@@ -13,7 +13,7 @@ properties:
     default: web
 
   read_only:
-    description: Set the Treafik REST API to read-only mode.
+    description: Set the Traefik REST API to read-only mode.
     default: true
 
   port:
