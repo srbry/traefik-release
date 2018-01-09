@@ -1,0 +1,35 @@
+#!/bin/bash
+
+RUN_DIR=/var/vcap/sys/run/traefik
+LOG_DIR=/var/vcap/sys/log/traefik
+PIDFILE=${RUN_DIR}/pid
+
+case $1 in
+
+  start)
+    mkdir -p $RUN_DIR $LOG_DIR
+    chown -R vcap:vcap $RUN_DIR $LOG_DIR
+
+    echo $$ > $PIDFILE
+
+    <%
+      p("traefik.config", "")
+    %> > ${RUN_DIR}/traefik.toml
+
+    exec chpst -u vcap:vcap /var/vcap/packages/traefik/bin/traefik \
+      -c ${RUN_DIR}/traefik.toml \
+      1>>$LOG_DIR/traefik.stdout.log \
+      2>>$LOG_DIR/traefik.stderr.log
+    ;;
+
+  stop)
+    kill -9 `cat $PIDFILE`
+    rm -f $PIDFILE
+    rm -f ${RUN_DIR}/traefik.toml
+
+    ;;
+
+  *)
+    echo "Usage: ctl {start|stop}" ;;
+
+esac

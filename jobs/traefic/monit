@@ -1,0 +1,5 @@
+check process traefik
+  with pidfile /var/vcap/sys/run/traefik/pid
+  start program "/var/vcap/sys/run/traefik/bin/ctl start"
+  stop program "/var/vcap/sys/run/traefik/bin/ctl stop"
+  group vcap
