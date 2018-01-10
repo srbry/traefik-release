@@ -22,7 +22,7 @@ case $1 in
     ;;
 
   stop)
-    kill -9 `cat $PIDFILE`
+    kill -9 "$(cat $PIDFILE)"
     rm -f $PIDFILE
     rm -f "${CONFIG}"
 

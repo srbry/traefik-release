@@ -3,7 +3,7 @@ name: traefik
 
 templates:
   traefik.toml.erb: config/traefik.toml
-  ctl.erb: bin/ctl
+  ctl: bin/ctl
 
 packages:
 - traefik
