@@ -1,3 +1,10 @@
+<%
+  traefik_mode = p("mode")
+  if traefik_mode != "web"
+    raise ArgumentError, "Expected mode to be 'web' but was: '#{traefik_mode}'"
+  end
+%>
+
 [<%= p("mode") %>]
 
 address = ":<%= p("port") %>"
