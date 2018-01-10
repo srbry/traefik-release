@@ -4,8 +4,7 @@
     raise ArgumentError, "Expected mode to be 'web' but was: '#{traefik_mode}'"
   end
 %>
-
-[<%= p("mode") %>]
+[<%= traefik_mode %>]
 
 address = ":<%= p("port") %>"
 
