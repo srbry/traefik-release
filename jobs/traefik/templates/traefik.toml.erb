@@ -9,3 +9,29 @@
 address = ":<%= p("port") %>"
 
 readOnly = <%= p("read_only") %>
+
+<%
+
+  atc_config = ""
+  if_link("atc") do |atc|
+    atc_config = "defaultEntryPoints = [\"http\"]\n\n"
+    atc_config += "[entryPoints]\n"
+    atc_config += "  [entryPoints.http]\n"
+    atc_config += "  address = \":80\"\n\n"
+
+    atc_config += "[file]\n\n"
+    atc_config += "[backends]\n"
+    atc_config += "  [backends.atc]\n"
+    atc.instances.each do |instance|
+      atc_config += "    [backends.atc.servers.#{instance.index}]\n"
+      atc_config += "    url = \"http://#{instance.address}:#{link('atc').p('bind_port')}\"\n"
+      atc_config += "    weight = 1\n\n"
+    end
+    atc_config += "[frontends]\n"
+    atc_config += "  [frontends.atc]\n"
+    atc_config += "  backend = \"atc\"\n"
+  end
+
+%>
+
+<%= atc_config %>

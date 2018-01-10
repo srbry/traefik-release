@@ -8,6 +8,11 @@ templates:
 packages:
 - traefik
 
+consumes:
+- name: atc
+  type: atc
+  optional: true
+
 properties:
   mode:
     description: Traefik config mode, currently only supports "web"
