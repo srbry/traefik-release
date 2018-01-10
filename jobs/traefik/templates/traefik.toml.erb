@@ -22,6 +22,10 @@ readOnly = <%= p("read_only") %>
     atc_config += "[file]\n\n"
     atc_config += "[backends]\n"
     atc_config += "  [backends.atc]\n"
+    atc_config += "    [backends.atc.healthcheck]\n"
+    atc_config += "    path = \"/\"\n"
+    atc_config += "    interval = \"10s\"\n"
+
     atc.instances.each do |instance|
       atc_config += "    [backends.atc.servers.#{instance.index}]\n"
       atc_config += "    url = \"http://#{instance.address}:#{link('atc').p('bind_port')}\"\n"
