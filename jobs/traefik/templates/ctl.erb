@@ -2,6 +2,7 @@
 
 RUN_DIR=/var/vcap/sys/run/traefik
 LOG_DIR=/var/vcap/sys/log/traefik
+CONFIG=/var/vcap/jobs/traefik/config/traefik.toml
 PIDFILE=${RUN_DIR}/pid
 
 case $1 in
@@ -12,27 +13,18 @@ case $1 in
 
     echo $$ > $PIDFILE
 
-    <%
-      traefik_mode = p("mode")
-      traefik_address = p("port")
-      traefik_read_only = p("read_only")
-    %>
-    echo "[<%= traefik_mode %>]" > ${RUN_DIR}/traefik.toml
-    echo "" >> ${RUN_DIR}/traefik.toml
-    echo "address = \":<%= traefik_address %>\"" >> ${RUN_DIR}/traefik.toml
-    echo "" >> ${RUN_DIR}/traefik.toml
-    echo "readOnly = <%= traefik_read_only %>" >> ${RUN_DIR}/traefik.toml
+    test -f "${CONFIG}"
 
     exec chpst /var/vcap/packages/traefik/traefik \
-      -c ${RUN_DIR}/traefik.toml \
-      1>>$LOG_DIR/traefik.stdout.log \
-      2>>$LOG_DIR/traefik.stderr.log
+      -c "${CONFIG}" \
+      1>>${LOG_DIR}/traefik.stdout.log \
+      2>>${LOG_DIR}/traefik.stderr.log
     ;;
 
   stop)
     kill -9 `cat $PIDFILE`
     rm -f $PIDFILE
-    rm -f ${RUN_DIR}/traefik.toml
+    rm -f "${CONFIG}"
 
     ;;
 
