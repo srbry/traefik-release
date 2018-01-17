@@ -10,32 +10,45 @@ address = ":<%= p("port") %>"
 
 readOnly = <%= p("read_only") %>
 
-<%
+defaultEntryPoints = ["http"]
+[entryPoints]
+  [entryPoints.http]
+  address = ":80"
 
-  atc_config = ""
-  if_link("atc") do |atc|
-    atc_config = "defaultEntryPoints = [\"http\"]\n\n"
-    atc_config += "[entryPoints]\n"
-    atc_config += "  [entryPoints.http]\n"
-    atc_config += "  address = \":80\"\n\n"
+<% consul_link = false %>
+<% if_link("consul_server") do |consul| %>
+<% consul_link = true %>
+[consul]
 
-    atc_config += "[file]\n\n"
-    atc_config += "[backends]\n"
-    atc_config += "  [backends.atc]\n"
-    atc_config += "    [backends.atc.healthcheck]\n"
-    atc_config += "    path = \"/\"\n"
-    atc_config += "    interval = \"10s\"\n"
+endpoint = "localhost:8500"
 
-    atc.instances.each do |instance|
-      atc_config += "    [backends.atc.servers.#{instance.index}]\n"
-      atc_config += "    url = \"http://#{instance.address}:#{link('atc').p('bind_port')}\"\n"
-      atc_config += "    weight = 1\n\n"
-    end
-    atc_config += "[frontends]\n"
-    atc_config += "  [frontends.atc]\n"
-    atc_config += "  backend = \"atc\"\n"
-  end
+watch = true
 
-%>
+prefix = "traefik"
 
-<%= atc_config %>
+<%# [consul.tls]
+ca = "/var/vcap/jobs/consul_agent/config/certs/ca.crt"
+cert = "/var/vcap/jobs/consul_agent/config/certs/server.crt"
+key = "/var/vcap/jobs/consul_agent/config/certs/server.key"
+insecureskipverify = false %>
+<% end %>
+<% if_link("atc") do |atc| %>
+<% unless consul_link%>
+[file]
+[backends]
+  [backends.atc]
+    [backends.atc.healthcheck]
+    path = "/"
+    interval = "10s"
+
+<% atc.instances.each do |instance| %>
+    [backends.atc.servers.<%= instance.index %>]
+    url = "http://<%= instance.address %>:<%= link('atc').p('bind_port') %>"
+    weight = 1
+<% end %>
+
+[frontends]
+  [frontends.atc]
+  backend = "atc"
+<% end %>
+<% end %>

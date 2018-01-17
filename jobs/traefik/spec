@@ -3,6 +3,7 @@ name: traefik
 
 templates:
   traefik.toml.erb: config/traefik.toml
+  set_consul_kv.erb: bin/set_consul_kv
   ctl: bin/ctl
 
 packages:
@@ -11,6 +12,18 @@ packages:
 consumes:
 - name: atc
   type: atc
+  optional: true
+
+- name: consul_common
+  type: consul_common
+  optional: true
+
+- name: consul_server
+  type: consul_server
+  optional: true
+
+- name: consul_client
+  type: consul_client
   optional: true
 
 properties:

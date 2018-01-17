@@ -15,6 +15,10 @@ case $1 in
 
     test -f "${CONFIG}"
 
+    /var/vcap/jobs/traefik/bin/set_consul_kv \
+      1>>${LOG_DIR}/consul_set_kv.stdout.log \
+      2>>${LOG_DIR}/consul_set_kv.stderr.log
+
     exec chpst /var/vcap/packages/traefik/traefik \
       -c "${CONFIG}" \
       1>>${LOG_DIR}/traefik.stdout.log \
@@ -24,7 +28,6 @@ case $1 in
   stop)
     kill -9 "$(cat $PIDFILE)"
     rm -f $PIDFILE
-    rm -f "${CONFIG}"
 
     ;;
 

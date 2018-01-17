@@ -1,0 +1,15 @@
+#!/bin/bash
+
+consul_path=/var/vcap/packages/consul/bin/consul
+
+<% if_link("consul_server") do |consul| %>
+<% if_link("atc") do |atc| %>
+$consul_path kv put traefik/backends/atc/healthcheck/path /
+$consul_path kv put traefik/backends/atc/healthcheck/interval 10s
+<% atc.instances.each do |instance| %>
+$consul_path kv put traefik/backends/atc/servers/<%= instance.index %>/url "http://<%= instance.address %>:<%= link('atc').p('bind_port') %>"
+$consul_path kv put traefik/backends/atc/servers/<%= instance.index %>/weight 1
+<% end %>
+$consul_path kv put traefik/frontends/atc/backend atc
+<% end %>
+<% end %>
