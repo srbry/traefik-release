@@ -38,3 +38,7 @@ properties:
   port:
     description: Traefik web admin port
     default: 8080
+
+  https:
+    description: Loadbalance using an HTTPS frontend
+    default: false

@@ -11,5 +11,8 @@ $consul_path kv put traefik/backends/atc/servers/<%= instance.index %>/url "http
 $consul_path kv put traefik/backends/atc/servers/<%= instance.index %>/weight 1
 <% end %>
 $consul_path kv put traefik/frontends/atc/backend atc
+<% if p("https") %>
+$consul_path kv put traefik/frontends/atc/entrypoints http,https
+<% end %>
 <% end %>
 <% end %>

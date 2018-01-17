@@ -7,13 +7,24 @@
 [<%= traefik_mode %>]
 
 address = ":<%= p("port") %>"
-
 readOnly = <%= p("read_only") %>
 
+<% if p("https") %>
+defaultEntryPoints = ["http", "https"]
+[entryPoints]
+  [entryPoints.http]
+  address = ":80"
+    [entryPoints.http.redirect]
+    entryPoint = "https"
+  [entryPoints.https]
+  address = ":443"
+    [entryPoints.https.tls]
+<% else %>
 defaultEntryPoints = ["http"]
 [entryPoints]
   [entryPoints.http]
   address = ":80"
+<% end %>
 
 <% consul_link = false %>
 <% if_link("consul_server") do |consul| %>
@@ -21,9 +32,7 @@ defaultEntryPoints = ["http"]
 [consul]
 
 endpoint = "localhost:8500"
-
 watch = true
-
 prefix = "traefik"
 
 <%# [consul.tls]
@@ -50,5 +59,8 @@ insecureskipverify = false %>
 [frontends]
   [frontends.atc]
   backend = "atc"
+<% if p("https") %>
+  entrypoints = ["http", "https"]
+<% end %>
 <% end %>
 <% end %>
