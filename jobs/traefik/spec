@@ -47,6 +47,10 @@ properties:
   acme.email:
     description: Email address to use for ACME (Let's Encrypt)
 
+  acme.staging:
+    description: Use the staging lets-enctypt servers for acme testing
+    default: false
+
   acme.domains:
     description: An array of domains to configure with ACME
     example:

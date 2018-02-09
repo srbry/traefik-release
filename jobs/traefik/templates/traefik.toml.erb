@@ -72,7 +72,9 @@ if_p("acme.email") do |email|
 %>
 [acme]
 email = "<%= email %>"
+<% if p("acme.staging") %>
 caServer = "https://acme-staging.api.letsencrypt.org/directory"
+<% end %>
 <% if consul_link %>
 storage = "traefik/acme/account"
 <% else %>
