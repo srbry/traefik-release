@@ -8,6 +8,7 @@ templates:
 
 packages:
 - traefik
+- traefik-consul
 
 consumes:
 - name: atc
@@ -42,3 +43,12 @@ properties:
   https:
     description: Loadbalance using an HTTPS frontend
     default: false
+
+  acme.email:
+    description: Email address to use for ACME (Let's Encrypt)
+
+  acme.domains:
+    description: An array of domains to configure with ACME
+    example:
+      - "mydomain.example.com"
+      - "myotherdomain.example.com"

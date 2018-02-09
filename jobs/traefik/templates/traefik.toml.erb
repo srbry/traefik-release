@@ -63,4 +63,28 @@ insecureskipverify = false %>
   entrypoints = ["http", "https"]
 <% end %>
 <% end %>
+
+<%
+if_p("acme.email") do |email|
+  unless p("https")
+    raise ArgumentError, "Traefik must be configured to use https to enable acme"
+  end
+%>
+[acme]
+email = "<%= email %>"
+caServer = "https://acme-staging.api.letsencrypt.org/directory"
+<% if consul_link %>
+storage = "traefik/acme/account"
+<% else %>
+storage = "/var/vcap/store/traefik/acme.json"
+<% end %>
+entryPoint = "https"
+acmeLogging = true
+[acme.httpChallenge]
+  entryPoint = "http"
+<% p("acme.domains").each do |domain| %>
+[[acme.domains]]
+  main = "<%= domain %>"
+<% end %>
+<% end %>
 <% end %>

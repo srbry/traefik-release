@@ -1,8 +1,19 @@
 #!/bin/bash
 
-consul_path=/var/vcap/packages/consul/bin/consul
+consul_path=/var/vcap/packages/traefik-consul/bin/consul
 
 <% if_link("consul_server") do |consul| %>
+i=0
+while [ $i -le 120 ]; do
+  if $consul_path members; then
+    sleep 10
+    break
+  fi
+  echo "Waiting for consul to come up..."
+  sleep 2
+  i=$((i+1))
+done
+
 <% if_link("atc") do |atc| %>
 $consul_path kv put traefik/backends/atc/healthcheck/path /
 $consul_path kv put traefik/backends/atc/healthcheck/interval 10s

@@ -1,0 +1,7 @@
+---
+name: traefik-consul
+
+dependencies: []
+
+files:
+  - consul/consul_0.7.4_linux_amd64.zip
