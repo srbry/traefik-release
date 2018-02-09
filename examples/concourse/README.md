@@ -16,3 +16,12 @@ IAAS config:
 1. An iaas loadbalancer listening on `80` and `443`, with health checks configured on `80` with the shortest possible check times. The longer this is the more likely you are to hit the `known issues` described in the main [README](../../README.md) of this project.
 1. DNS pointing at your iaas loadbalacer
 1. Inbound security groups on your loadbalancer on ports: `80` and `443`
+
+## Possible (nasty) workaround IaaS loadbalancer health check issues
+
+1. Configure your security group to also allow ssh
+1. Configure health checks to use TCP port `22`.
+1. Once cert has been generated change healthcheck back to `80`.
+1. Remove TCP `22` from your security group
+
+This is definitely a nasty workaround but it gives the load balancer the opportunity to detect the health of the VM before jobs have been deployed. If you don't revert the healthcheck to port 80 then if traefik ever has an operational issue you will route traffic to a VM that cannot do anything with it.
