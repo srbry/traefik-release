@@ -1,5 +1,57 @@
 ---
 name: traefik
 
+dependencies:
+  - golang
+
 files:
-  - traefik_binaries/*
+  - github.com/containous/traefik/**/*.{go,s,c,h} # gosub
+  - github.com/ArthurHlt/go-eureka-client/**/*.{go,s,c,h} # gosub
+  - github.com/BurntSushi/toml/**/*.{go,s,c,h} # gosub
+  - github.com/BurntSushi/ty/**/*.{go,s,c,h} # gosub
+  - github.com/NYTimes/gziphandler/**/*.{go,s,c,h} # gosub
+  - github.com/Nvveen/Gotty/**/*.{go,s,c,h} # gosub
+  - github.com/abbot/go-http-auth/**/*.{go,s,c,h} # gosub
+  - github.com/abronan/valkeyrie/**/*.{go,s,c,h} # gosub
+  - github.com/armon/go-proxyproto/**/*.{go,s,c,h} # gosub
+  - github.com/aws/aws-sdk-go/**/*.{go,s,c,h} # gosub
+  - github.com/cenk/backoff/**/*.{go,s,c,h} # gosub
+  - github.com/containous/flaeg/**/*.{go,s,c,h} # gosub
+  - github.com/containous/mux/**/*.{go,s,c,h} # gosub
+  - github.com/containous/staert/**/*.{go,s,c,h} # gosub
+  - github.com/containous/traefik-extra-service-fabric/**/*.{go,s,c,h} # gosub
+  - github.com/coreos/go-systemd/**/*.{go,s,c,h} # gosub
+  - github.com/docker/cli/**/*.{go,s,c,h} # gosub
+  - github.com/docker/distribution/**/*.{go,s,c,h} # gosub
+  - github.com/docker/docker/**/*.{go,s,c,h} # gosub
+  - github.com/docker/leadership/**/*.{go,s,c,h} # gosub
+  - github.com/docker/libcompose/**/*.{go,s,c,h} # gosub
+  - github.com/eapache/channels/**/*.{go,s,c,h} # gosub
+  - github.com/elazarl/go-bindata-assetfs/**/*.{go,s,c,h} # gosub
+  - github.com/go-check/check/**/*.{go,s,c,h} # gosub
+  - github.com/go-kit/kit/**/*.{go,s,c,h} # gosub
+  - github.com/gorilla/websocket/**/*.{go,s,c,h} # gosub
+  - github.com/influxdata/influxdb/**/*.{go,s,c,h} # gosub
+  - github.com/jjcollinge/servicefabric/**/*.{go,s,c,h} # gosub
+  - github.com/libkermit/compose/**/*.{go,s,c,h} # gosub
+  - github.com/libkermit/docker/**/*.{go,s,c,h} # gosub
+  - github.com/libkermit/docker-check/**/*.{go,s,c,h} # gosub
+  - github.com/mailgun/timetools/**/*.{go,s,c,h} # gosub
+  - github.com/mattn/go-shellwords/**/*.{go,s,c,h} # gosub
+  - github.com/mesosphere/mesos-dns/**/*.{go,s,c,h} # gosub
+  - github.com/mitchellh/copystructure/**/*.{go,s,c,h} # gosub
+  - github.com/mitchellh/hashstructure/**/*.{go,s,c,h} # gosub
+  - github.com/mitchellh/mapstructure/**/*.{go,s,c,h} # gosub
+  - github.com/opentracing/opentracing-go/**/*.{go,s,c,h} # gosub
+  - github.com/rancher/go-rancher-metadata/**/*.{go,s,c,h} # gosub
+  - github.com/ryanuber/go-glob/**/*.{go,s,c,h} # gosub
+  - github.com/satori/go.uuid/**/*.{go,s,c,h} # gosub
+  - github.com/stvp/go-udp-testing/**/*.{go,s,c,h} # gosub
+  - github.com/uber/jaeger-client-go/**/*.{go,s,c,h} # gosub
+  - github.com/uber/jaeger-lib/**/*.{go,s,c,h} # gosub
+  - github.com/vdemeester/shakers/**/*.{go,s,c,h} # gosub
+  - github.com/vulcand/oxy/**/*.{go,s,c,h} # gosub
+  - github.com/xenolf/lego/**/*.{go,s,c,h} # gosub
+  - google.golang.org/grpc/**/*.{go,s,c,h} # gosub
+  - gopkg.in/fsnotify.v1/**/*.{go,s,c,h} # gosub
+  - k8s.io/client-go/**/*.{go,s,c,h} # gosub

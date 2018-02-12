@@ -1,3 +1,6 @@
 /dev_releases
 /.dev_builds
 
+src/golang/go*.linux-amd64.tar.gz
+src/consul/consul_*_linux_amd64.zip
+submodule.sh

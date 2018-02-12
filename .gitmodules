@@ -1,3 +1,153 @@
 [submodule "src/traefik"]
 	path = src/traefik
 	url = https://github.com/containous/traefik.git
+[submodule "src/github.com/containous/traefik"]
+	path = src/github.com/containous/traefik
+	url = https://github.com/containous/traefik.git
+[submodule "src/github.com/gorilla/websocket"]
+	path = src/github.com/gorilla/websocket
+	url = https://github.com/gorilla/websocket.git
+[submodule "src/github.com/Nvveen/Gotty"]
+	path = src/github.com/Nvveen/Gotty
+	url = https://github.com/ijc25/Gotty.git
+[submodule "src/github.com/go-check/check"]
+	path = src/github.com/go-check/check
+	url = https://github.com/containous/check.git
+[submodule "src/github.com/NYTimes/gziphandler"]
+	path = src/github.com/NYTimes/gziphandler
+	url = https://github.com/NYTimes/gziphandler.git
+[submodule "src/github.com/jjcollinge/servicefabric"]
+	path = src/github.com/jjcollinge/servicefabric
+	url = https://github.com/jjcollinge/servicefabric.git
+[submodule "src/github.com/mattn/go-shellwords"]
+	path = src/github.com/mattn/go-shellwords
+	url = https://github.com/mattn/go-shellwords.git
+[submodule "src/github.com/mitchellh/hashstructure"]
+	path = src/github.com/mitchellh/hashstructure
+	url = https://github.com/mitchellh/hashstructure.git
+[submodule "src/gopkg.in/fsnotify.v1"]
+	path = src/gopkg.in/fsnotify.v1
+	url = https://gopkg.in/fsnotify.v1.git
+[submodule "src/github.com/containous/flaeg"]
+	path = src/github.com/containous/flaeg
+	url = https://github.com/containous/flaeg.git
+[submodule "src/github.com/coreos/go-systemd"]
+	path = src/github.com/coreos/go-systemd
+	url = https://github.com/coreos/go-systemd.git
+[submodule "src/github.com/elazarl/go-bindata-assetfs"]
+	path = src/github.com/elazarl/go-bindata-assetfs
+	url = https://github.com/elazarl/go-bindata-assetfs.git
+[submodule "src/github.com/go-kit/kit"]
+	path = src/github.com/go-kit/kit
+	url = https://github.com/go-kit/kit.git
+[submodule "src/github.com/rancher/go-rancher-metadata"]
+	path = src/github.com/rancher/go-rancher-metadata
+	url = https://github.com/containous/go-rancher-metadata.git
+[submodule "src/github.com/docker/libcompose"]
+	path = src/github.com/docker/libcompose
+	url = https://github.com/docker/libcompose.git
+[submodule "src/github.com/mitchellh/copystructure"]
+	path = src/github.com/mitchellh/copystructure
+	url = https://github.com/mitchellh/copystructure.git
+[submodule "src/github.com/opentracing/opentracing-go"]
+	path = src/github.com/opentracing/opentracing-go
+	url = https://github.com/opentracing/opentracing-go.git
+[submodule "src/github.com/libkermit/compose"]
+	path = src/github.com/libkermit/compose
+	url = https://github.com/libkermit/compose.git
+[submodule "src/github.com/BurntSushi/toml"]
+	path = src/github.com/BurntSushi/toml
+	url = https://github.com/BurntSushi/toml.git
+[submodule "src/github.com/stvp/go-udp-testing"]
+	path = src/github.com/stvp/go-udp-testing
+	url = https://github.com/stvp/go-udp-testing.git
+[submodule "src/github.com/aws/aws-sdk-go"]
+	path = src/github.com/aws/aws-sdk-go
+	url = https://github.com/aws/aws-sdk-go.git
+[submodule "src/github.com/abronan/valkeyrie"]
+	path = src/github.com/abronan/valkeyrie
+	url = https://github.com/abronan/valkeyrie.git
+[submodule "src/github.com/satori/go.uuid"]
+	path = src/github.com/satori/go.uuid
+	url = https://github.com/satori/go.uuid.git
+[submodule "src/github.com/armon/go-proxyproto"]
+	path = src/github.com/armon/go-proxyproto
+	url = https://github.com/armon/go-proxyproto.git
+[submodule "src/github.com/uber/jaeger-client-go"]
+	path = src/github.com/uber/jaeger-client-go
+	url = https://github.com/uber/jaeger-client-go.git
+[submodule "src/github.com/abbot/go-http-auth"]
+	path = src/github.com/abbot/go-http-auth
+	url = https://github.com/containous/go-http-auth.git
+[submodule "src/github.com/mitchellh/mapstructure"]
+	path = src/github.com/mitchellh/mapstructure
+	url = https://github.com/mitchellh/mapstructure.git
+[submodule "src/github.com/ryanuber/go-glob"]
+	path = src/github.com/ryanuber/go-glob
+	url = https://github.com/ryanuber/go-glob.git
+[submodule "src/github.com/docker/distribution"]
+	path = src/github.com/docker/distribution
+	url = https://github.com/docker/distribution.git
+[submodule "src/github.com/libkermit/docker"]
+	path = src/github.com/libkermit/docker
+	url = https://github.com/libkermit/docker.git
+[submodule "src/github.com/libkermit/docker-check"]
+	path = src/github.com/libkermit/docker-check
+	url = https://github.com/libkermit/docker-check.git
+[submodule "src/github.com/ArthurHlt/go-eureka-client"]
+	path = src/github.com/ArthurHlt/go-eureka-client
+	url = https://github.com/ArthurHlt/go-eureka-client.git
+[submodule "src/github.com/BurntSushi/ty"]
+	path = src/github.com/BurntSushi/ty
+	url = https://github.com/BurntSushi/ty.git
+[submodule "src/github.com/xenolf/lego"]
+	path = src/github.com/xenolf/lego
+	url = https://github.com/xenolf/lego.git
+[submodule "src/github.com/mailgun/timetools"]
+	path = src/github.com/mailgun/timetools
+	url = https://github.com/mailgun/timetools.git
+[submodule "src/github.com/influxdata/influxdb"]
+	path = src/github.com/influxdata/influxdb
+	url = https://github.com/influxdata/influxdb.git
+[submodule "src/github.com/cenk/backoff"]
+	path = src/github.com/cenk/backoff
+	url = https://github.com/cenk/backoff.git
+[submodule "src/github.com/docker/leadership"]
+	path = src/github.com/docker/leadership
+	url = https://github.com/containous/leadership.git
+[submodule "src/github.com/eapache/channels"]
+	path = src/github.com/eapache/channels
+	url = https://github.com/eapache/channels.git
+[submodule "src/github.com/mesosphere/mesos-dns"]
+	path = src/github.com/mesosphere/mesos-dns
+	url = https://github.com/containous/mesos-dns.git
+[submodule "src/github.com/containous/mux"]
+	path = src/github.com/containous/mux
+	url = https://github.com/containous/mux.git
+[submodule "src/github.com/docker/docker"]
+	path = src/github.com/docker/docker
+	url = https://github.com/docker/docker.git
+[submodule "src/github.com/containous/traefik-extra-service-fabric"]
+	path = src/github.com/containous/traefik-extra-service-fabric
+	url = https://github.com/containous/traefik-extra-service-fabric.git
+[submodule "src/k8s.io/client-go"]
+	path = src/k8s.io/client-go
+	url = https://github.com/kubernetes/client-go.git
+[submodule "src/github.com/containous/staert"]
+	path = src/github.com/containous/staert
+	url = https://github.com/containous/staert.git
+[submodule "src/github.com/uber/jaeger-lib"]
+	path = src/github.com/uber/jaeger-lib
+	url = https://github.com/uber/jaeger-lib.git
+[submodule "src/github.com/vulcand/oxy"]
+	path = src/github.com/vulcand/oxy
+	url = https://github.com/vulcand/oxy.git
+[submodule "src/google.golang.org/grpc"]
+	path = src/google.golang.org/grpc
+	url = https://github.com/grpc/grpc-go
+[submodule "src/github.com/docker/cli"]
+	path = src/github.com/docker/cli
+	url = https://github.com/docker/cli.git
+[submodule "src/github.com/vdemeester/shakers"]
+	path = src/github.com/vdemeester/shakers
+	url = https://github.com/vdemeester/shakers.git

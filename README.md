@@ -5,7 +5,7 @@
 This BOSH release is currently in dev. To use it:
 
 ```sh
-bosh create-release
+make release
 bosh upload-release
 ```
 
