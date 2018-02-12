@@ -1,5 +1,7 @@
 #!/bin/sh
 
+git submodule update --init
+
 golang_file=go1.9.4.linux-amd64.tar.gz
 
 if [ -f "src/golang/${golang_file}" ]; then
