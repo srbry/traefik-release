@@ -1,6 +1,6 @@
 # Using Traefik with Concourse
 
-[Concourse](http://concourse.ci/) is a great use case for Traefik. You want to have your CI server secure but you don't want to have to pay for an SSL cert and configure it.
+[Concourse](http://concourse-ci.org/) is a great use case for Traefik. You want to have your CI server secure but you don't want to have to pay for an SSL cert and configure it.
 
 The `ops-file.yml` in this directory can be used to colacate traefik and consul on the web nodes of your [concourse deployment](https://github.com/concourse/concourse-deployment/tree/master/cluster).
 
